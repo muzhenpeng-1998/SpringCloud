@@ -18,7 +18,8 @@ public class EurekaConsumerApplication {
 	RestTemplate getRestTemplate() {
 
 		RestTemplate restTemplate = new RestTemplate();
-		restTemplate.getInterceptors().add(new LoggingClientHttpRequestInterceptor());
+		//添加拦截器
+//		restTemplate.getInterceptors().add(new LoggingClientHttpRequestInterceptor());
 		return restTemplate;
 	}
 
