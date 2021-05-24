@@ -33,4 +33,5 @@ public interface ConsumerApi extends UserApi {
     @PostMapping("/postMap")
     Map<Integer, String> postMap(Map<String, Object> map);
 
+
 }

@@ -1,18 +1,13 @@
 package com.study.eurekaprovider;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 import java.util.Collections;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
@@ -41,8 +36,8 @@ public class MainController {
     }
 
     @GetMapping("/getObj2")
-    public Person getObj2(String name) {
-        Person person = new Person(100,name);
+    public Person getObj2(String name, String age) {
+        Person person = new Person(100, name, age);
         return person;
     }
 
@@ -53,7 +48,7 @@ public class MainController {
 
         URI uri = new URI("https://www.baidu.com/s?wd="+person.getName().trim());
 
-        //	response.addHeader("Location", uri.toString());
+        response.addHeader("Location", uri.toString());
 
         return uri;
 
